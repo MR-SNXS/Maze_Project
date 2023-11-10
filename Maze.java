@@ -42,6 +42,7 @@ public class Maze {
 
 	    rows = Integer.parseInt(lines.get(0).split(",")[0]);
 	    columns = Integer.parseInt(lines.get(0).split(",")[1]);
+	    directions = Integer.parseInt(lines.get(0).split(",")[2]);
 	    grid = new int[rows][columns];
 	    startCoordinates = new ArrayList<>();
 	    endCoordinates = new ArrayList<>();
@@ -53,12 +54,18 @@ public class Maze {
 
 	            if (cellValue.equals("S")) {
 	                grid[i - 1][j] = 20; // Marcador de inicio
-	                int[] startCoord = { i - 1, j };
+	                int[] startCoord = { i , j +1 };
 	                startCoordinates.add(startCoord);
+	                startRow=i;
+	                startColumn =j+1;
+	                starts++;
 	            } else if (cellValue.equals("F")) {
 	                grid[i - 1][j] = 30; // Marcador de final
-	                int[] endCoord = { i - 1, j };
+	                int[] endCoord = { i , j +1 };
 	                endCoordinates.add(endCoord);
+	                endRow=i;
+	                endColumn =j+1;
+	                ends++;
 	            } else {
 	                int cell = Integer.parseInt(cellValue);
 	                grid[i - 1][j] = cell;
