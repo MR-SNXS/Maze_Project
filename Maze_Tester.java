@@ -39,6 +39,8 @@ public class Maze_Tester {
             } else {
                 // Caso: Múltiples puntos de inicio, permitir al usuario elegir uno
                 System.out.println("El laberinto tiene múltiples comienzos:");
+                System.out.println("\n"+" Starts Number: "+labyrinth.getStarts());
+                System.out.println(" Ends number"+labyrinth.getEnds());
                 for (int i = 0; i < startCoordinates.size(); i++) {
                     int[] startCoord = startCoordinates.get(i);
                     System.out.println("Comienzo " + (i + 1) + ": (" + startCoord[0] + ", " + startCoord[1] + ")");
@@ -64,8 +66,6 @@ public class Maze_Tester {
 
             if (solver.resolverLaberinto(startRow, startColumn)) {
                 System.out.println("\nThe maze was successfully traversed by BiggieCheese");
-               System.out.println("\n"+labyrinth.getStarts());
-               System.out.println(labyrinth.getEnds());
                labyrinth.printSolution();
             } else {
             	System.out.println("");
